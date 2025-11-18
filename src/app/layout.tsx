@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { StackProvider, StackTheme } from "@stackframe/stack";
+import { stackClientApp } from "../stack/client";
 import { Geist, Geist_Mono, Anton } from "next/font/google";
 import "./globals.css";
 
@@ -34,7 +36,11 @@ export default function RootLayout({
       className={`${anton.variable} ${geistSans.variable} ${geistMono.variable}`}
     >
       <body className="antialiased">
-        {children}
+        <StackProvider app={stackClientApp}>
+          <StackTheme>
+            {children}
+          </StackTheme>
+        </StackProvider>
       </body>
     </html>
   );

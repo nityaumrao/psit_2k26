@@ -2,15 +2,19 @@
 
 export default function Background() {
   return (
-    <div style={{ width: '100%', height: '100%', position: 'relative', overflow: 'hidden' }}>
-     <video 
-        autoPlay
-        loop
-        muted
-        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-      >
-        <source src="video.mp4" type="video/mp4" />
-      </video>
+    <div className="absolute inset-0 -z-10">
+      <div className="relative w-full h-screen overflow-hidden">
+
+  {/* Background Video */}
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          src="/video.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+      </div>
     </div>
-  )
+  );
 }

@@ -1,23 +1,30 @@
 'use client';
 
-import Background from './_components/background'
-import { Navbar } from '@/app/(landing)/_components/Navbar';
-import HeroSection from './_components/text';
-import Image from 'next/image';
+import Background from './_components/background';
+import HeroSection from './_components/heroSec';
+import AboutSection from './_components/AboutSection';
+import { FloatingNavDemo } from './_components/floatingNav';
 
 export default function Home() {
   return (
-    <div className='bg-[#131010] w-full min-h-screen relative'>
-      <div className='absolute inset-0 z-0'>
-        {/* <Background /> */}
+    <section className="relative min-h-screen overflow-hidden ">
+
+      <FloatingNavDemo />
+
+      {/* Video */}
+      <Background />
+
+      {/* Radial Overlay */}
+      <div className="absolute inset-0 z-10 " />
+
+      {/* Vertical Gradient Overlay */}
+      <div className="absolute inset-0 z-20 " />
+
+      {/* Content */}
+      <div className="relative z-30 min-h-screen">
+        <HeroSection />
+        <AboutSection />
       </div>
-      <div className='relative '>
-        
-        {/* <Navbar /> */}
-        <div className=" items-center left-40 w-full font-sarif text-yellow-400 min-h-screen">
-         <HeroSection />
-        </div>
-      </div>
-    </div>
-  )
+    </section>
+  );
 }

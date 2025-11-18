@@ -2,8 +2,15 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export function Navbar() {
+	const router = useRouter();
+
+	const handleOnClick = (path: string) => {
+		router.push(`/${path}`);
+	}
+
 	return (
 		<header className="w-full fixed top-4 left-0 z-50 px-6">
 			<nav className="max-w-7xl mx-auto flex items-center justify-between gap-4 rounded-2xl px-3 py-2 backdrop-blur-sm">
@@ -32,9 +39,12 @@ export function Navbar() {
 				</ul>
 
 				<div className="flex items-center gap-3">
-					<Link href="#" className="px-4 py-2 rounded-xl bg-yellow-400 text-black font-semibold hover:bg-white">
+					<button onClick={() => handleOnClick('signup')} className="px-4 py-2 rounded-xl bg-white text-black font-semibold hover:bg-yellow-400">
+						Register
+					</button>
+					<button onClick={() => handleOnClick('login')} className="px-4 py-2 rounded-xl bg-yellow-400 text-black font-semibold hover:bg-white">
 						Login
-					</Link>
+					</button>
 				</div>
 			</nav>
 		</header>
