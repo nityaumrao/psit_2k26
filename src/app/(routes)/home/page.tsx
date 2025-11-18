@@ -4,6 +4,7 @@ import Background from './_components/background';
 import HeroSection from './_components/heroSec';
 import AboutSection from './_components/AboutSection';
 import { FloatingNavDemo } from './_components/floatingNav';
+import Footer from '@/components/footer';
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <div className="relative z-30 min-h-screen">
         <HeroSection />
         <AboutSection />
+        <Footer />
       </div>
     </section>
   );

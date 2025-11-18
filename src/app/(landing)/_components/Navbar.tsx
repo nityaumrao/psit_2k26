@@ -22,7 +22,7 @@ export function Navbar() {
 					{[
 						{ label: 'Home', href: '/home' },
 						{ label: 'About', href: '/about' },
-						{ label: 'Events', href: '/events' },
+						{ label: 'Events', href: '/event' },
 						{ label: 'Gallery', href: '/gallery' },
 						{ label: 'Sponsors', href: '/sponsors' },
 						{ label: 'Team', href: '/team' }
@@ -39,7 +39,7 @@ export function Navbar() {
 				</ul>
 
 				<div className="flex items-center gap-3">
-					<button onClick={() => handleOnClick('signup')} className="px-4 py-2 rounded-xl bg-white text-black font-semibold hover:bg-yellow-400">
+					<button onClick={() => handleOnClick('signup	')} className="px-4 py-2 rounded-xl bg-white text-black font-semibold hover:bg-yellow-400">
 						Register
 					</button>
 					<button onClick={() => handleOnClick('login')} className="px-4 py-2 rounded-xl bg-yellow-400 text-black font-semibold hover:bg-white">

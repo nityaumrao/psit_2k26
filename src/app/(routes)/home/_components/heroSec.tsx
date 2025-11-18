@@ -1,5 +1,6 @@
 "use client";
 
+import FadeUp from "@/components/fadeUp";
 import Image from "next/image";
 
 const recentItems = [
@@ -48,15 +49,18 @@ export default function HeroSection() {
         </header>
 
         <main className="flex flex-1 flex-col items-center justify-end bottom-10 gap-6 text-center">
-          <p className="text-[10px] uppercase tracking-[0.7em] text-white/70">
+          <FadeUp>
+            <p className="text-[10px] uppercase tracking-[0.7em] text-white/70">
             Spectacular Parties for People & Brands
           </p>
+          </FadeUp>
+              <FadeUp delay={0.2}>
           <div className="flex items-end justify-center gap-2">
             <h1 className="font-anton text-[5.5rem] leading-[0.9] text-white md:text-[7rem] lg:text-[9rem]">
               WELCOME TO IGNITIA
             </h1>
             <span className="text-[2rem] uppercase tracking-[0.4em] text-white/60">®</span>
-          </div>
+          </div></FadeUp>
           <p className="text-[12px] uppercase tracking-[0.4em] text-white/60">
             For People & Brands
           </p>

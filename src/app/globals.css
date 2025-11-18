@@ -143,3 +143,33 @@
 .animate-bob {
   animation: bob 3s ease-in-out infinite;
 }
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.9s ease-out both;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.9s ease-out both;
+}
