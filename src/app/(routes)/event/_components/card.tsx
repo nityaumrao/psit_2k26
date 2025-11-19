@@ -1,95 +1,102 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { DirectionAwareHover } from "./ui/direction-aware-hover";
+import Image from "next/image";
+import { useMemo } from "react";
+
+export const dayFilters = ["25th March", "28th March", "29th March"] as const;
+export type DayFilter = (typeof dayFilters)[number];
 
 type EventCardProps = {
   title: string;
-  description: string;
-  date: string;
+  date: DayFilter;
   club: string;
+  category: string;
   imageUrl: string;
+  description: string;
 };
 
-const dayFilters = ["25th March", "28th March", "29th March"] as const;
-type DayFilter = (typeof dayFilters)[number];
-
-const events: (EventCardProps & { id: number; date: DayFilter })[] = [
+const events: (EventCardProps & { id: number })[] = [
   {
     id: 1,
     title: "Drone Dynamics",
-    description: "Elevating the ordinary with aerial ingenuity and rapid prototyping challenges.",
+    description: "Aerial ingenuity showdown hosted by the IoT Club.",
     date: "25th March",
     club: "IoT Club",
-    imageUrl:
-      "https://images.unsplash.com/photo-1504198458649-3128b932f49b?auto=format&fit=crop&w=900&q=80",
+    category: "Technical",
+    imageUrl: "https://images.unsplash.com/photo-1504198458649-3128b932f49b?auto=format&fit=crop&w=900&q=80",
   },
   {
     id: 2,
     title: "Mind Meld Challenge",
-    description: "A brain-flexing puzzle derby curated by DISH to test synergy under pressure.",
+    description: "Puzzle derby curated by DISH to test synergy under pressure.",
     date: "28th March",
     club: "DISH",
-    imageUrl:
-      "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80",
+    category: "Cultural",
+    imageUrl: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80",
   },
   {
     id: 3,
     title: "Stock Market Simulation",
-    description: "Decipher the markets in PSIT's flagship financial strategy faceoff.",
+    description: "Decode the markets in PSIT's flagship finance strategy battle.",
     date: "28th March",
     club: "FinVerse",
-    imageUrl:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80",
+    category: "Finance",
+    imageUrl: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80",
   },
   {
     id: 4,
     title: "Launchpad Marathon",
-    description: "Pitch, pivot, and prototype during the campus-wide startup showcase.",
+    description: "Pitch, pivot, and prototype during the campus-wide startup sprint.",
     date: "29th March",
     club: "Startup Cell",
-    imageUrl:
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80",
+    category: "Entrepreneurship",
+    imageUrl: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 5,
+    title: "Rhythm Riot",
+    description: "Cultural face-off to own the main stage.",
+    date: "28th March",
+    club: "Cultural Committee",
+    category: "Cultural",
+    imageUrl: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 6,
+    title: "Code Arena",
+    description: "Flagship hack sprint featuring the sharpest coders on campus.",
+    date: "25th March",
+    club: "CSI",
+    category: "Hackathon",
+    imageUrl: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
   },
 ];
 
-export function EventsShowcase() {
-  const [activeFilter, setActiveFilter] = useState<DayFilter | "All">("28th March");
-  const filteredEvents = useMemo(() => {
-    if (activeFilter === "All") return events;
-    return events.filter((event) => event.date === activeFilter);
-  }, [activeFilter]);
+type EventsShowcaseProps = {
+  activeFilter: DayFilter | "All";
+  searchQuery: string;
+};
+
+export function EventsShowcase({ activeFilter, searchQuery }: EventsShowcaseProps) {
+  const visibleEvents = useMemo(() => {
+    const byDay = activeFilter === "All" ? events : events.filter((event) => event.date === activeFilter);
+    const bySearch = byDay.filter((event) =>
+      event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      event.club.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      event.category.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    if (bySearch.length >= 4) {
+      return bySearch;
+    }
+    const supplemental = events.filter((event) => !bySearch.some((item) => item.id === event.id));
+    return [...bySearch, ...supplemental].slice(0, 4);
+  }, [activeFilter, searchQuery]);
 
   return (
-    <section className="min-h-screen bg-black py-24 text-white">
-      <div className="mx-auto w-full max-w-6xl px-6">
-        <header className="text-center">
-          <p className="text-sm uppercase tracking-[0.3em] text-zinc-400">Ignitia 2k26</p>
-          <h1 className="mt-4 text-4xl font-semibold uppercase md:text-5xl">Events</h1>
-          <p className="mx-auto mt-4 max-w-3xl text-sm text-zinc-400 md:text-base">
-            Explore every showcase, challenge, and celebration happening across campus. Filter by day to lock in your
-            schedule.
-          </p>
-        </header>
-
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
-          {(["All", ...dayFilters] as const).map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
-                activeFilter === filter
-                  ? "bg-white text-black"
-                  : "bg-zinc-900/70 text-zinc-300 hover:bg-zinc-800"
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
-
-        <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {filteredEvents.map((event) => (
+    <section className="bg-[#060112] py-16 text-white">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {visibleEvents.map((event) => (
             <EventCard key={event.id} {...event} />
           ))}
         </div>
@@ -98,21 +105,33 @@ export function EventsShowcase() {
   );
 }
 
-export function EventCard({ title, description, date, club, imageUrl }: EventCardProps) {
+function EventCard({ title, description, date, club, category, imageUrl }: EventCardProps) {
   return (
-    <div className="flex items-center justify-center">
-      <DirectionAwareHover
-        imageUrl={imageUrl}
-        className="h-[28rem] w-full max-w-sm md:h-[32rem]"
-        childrenClassName="max-w-[14rem] space-y-2"
-      >
-        <p className="text-[11px] font-semibold uppercase tracking-[0.45em] text-white/80">{date}</p>
-        <p className="font-semibold text-2xl leading-tight text-white">{title}</p>
-        <p className="text-sm text-white/80">{description}</p>
-        <span className="inline-flex rounded-full border border-white/30 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.25em] text-white/80">
-          {club}
-        </span>
-      </DirectionAwareHover>
-    </div>
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-[#f4c77a]/15 bg-gradient-to-b from-[#170312]/50 to-[#050109]/80 shadow-[0_25px_60px_rgba(0,0,0,0.45)]">
+      <div className="overflow-hidden">
+        <Image
+          src={imageUrl}
+          alt={`${title} poster`}
+          width={480}
+          height={640}
+          className="h-64 w-full object-cover transition duration-500 group-hover:scale-105"
+        />
+      </div>
+      <div className="flex flex-1 flex-col gap-3 px-6 py-6">
+        <div className="flex items-center justify-between text-[13px] font-semibold uppercase tracking-[0.35em] text-[#f9dca8]">
+          <span>{date}</span>
+          <span className="text-[#f7a928]">{category}</span>
+        </div>
+        <h3 className="text-2xl font-semibold text-white drop-shadow-[0_5px_20px_rgba(247,169,40,0.35)]">{title}</h3>
+        <p className="text-sm text-white/70">{description}</p>
+        <div className="mt-auto flex items-center justify-between text-sm text-white/60">
+          <span>{club}</span>
+          <button className="rounded-full border border-[#f7a928]/40 px-4 py-1 text-[12px] font-semibold uppercase tracking-[0.3em] text-[#f9dca8] transition hover:border-[#f7a928] hover:text-white">
+            Register
+          </button>
+        </div>
+      </div>
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-transparent via-[#f7a928] to-transparent opacity-60" />
+    </article>
   );
 }

@@ -2,15 +2,9 @@
 import { motion } from "framer-motion";
 import FadeUp from "@/components/fadeUp";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import clsx from "clsx";
+
 
 export default function AboutSection() {
-  const [animate, setAnimate] = useState(false);
-
-  useEffect(() => {
-    setAnimate(true);
-  }, []);
 
   return (
     <section className="flex min-h-screen w-full flex-col items-center bg-[#fdfbf6] px-6 py-2 text-center">
