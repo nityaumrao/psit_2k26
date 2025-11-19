@@ -1,8 +1,9 @@
-import landing from "./(landing)/page";
+import Landing from "./(landing)/page";
+
 export default function Home() {
   return (
     <div>
-      {landing()}
+      <Landing />
     </div>
   );
 }

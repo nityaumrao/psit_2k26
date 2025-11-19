@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useState } from "react";
 import type { DayFilter } from "./card";
 import { dayFilters } from "./card";
 
@@ -37,13 +37,7 @@ const ExploreEventsHeader = ({
       <div className="pointer-events-none absolute left-6 top-4 h-24 w-24 rounded-full bg-[#f4d29a]/20 blur-3xl" />
       <div className="pointer-events-none absolute right-6 top-[-20px] h-32 w-32 rounded-full bg-[#b38338]/30 blur-[100px]" />
 
-      {/* floating emblem icons */}
-      {/* <div className="absolute left-6 top-6 text-[#f5d79f]/80">
-        <LeafCluster />
-      </div>
-      <div className="absolute right-10 top-8 text-[#f2c875]/70 rotate-12">
-        <LeafCluster />
-      </div> */}
+     
 
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-6">
         <div
@@ -97,32 +91,6 @@ const ExploreEventsHeader = ({
         </div>
       </div>
     </section>
-  );
-};
-
-const LeafCluster = () => {
-  const gradientId = useId();
-  return (
-    <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true" className="animate-pulse-slow">
-      <defs>
-        <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#f5e6b3" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="#b88a46" stopOpacity="0.4" />
-        </linearGradient>
-      </defs>
-      <path
-        d="M32 4 C20 10 12 22 12 34 C12 44 20 52 32 60 C44 52 52 44 52 34 C52 22 44 10 32 4 Z"
-        fill={`url(#${gradientId})`}
-        fillOpacity="0.6"
-      />
-      <path
-        d="M32 8 C24 14 20 22 20 30 C20 38 24 46 32 52 C40 46 44 38 44 30 C44 22 40 14 32 8 Z"
-        stroke="#fce9c9"
-        strokeOpacity="0.4"
-        strokeWidth="1"
-        fill="none"
-      />
-    </svg>
   );
 };
 

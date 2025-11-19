@@ -3,8 +3,8 @@
 import { useState } from "react";
 import ExploreEventsHeader from "./_components/explore-events-header";
 import { EventsShowcase, type DayFilter } from "./_components/card";
-import Footer from "@/components/footer";
-import { Navbar } from "@/app/(landing)/_components/Navbar";
+import Footer from "../_components/footer";
+import { Navbar } from "@/app/(routes)/home/_components/Navbar";
 export default function EventsPage() {
   const [activeFilter, setActiveFilter] = useState<DayFilter | "All">("All");
   const [searchQuery, setSearchQuery] = useState("");
@@ -22,7 +22,10 @@ export default function EventsPage() {
         onSearchChange={setSearchQuery}
       />
       <EventsShowcase activeFilter={activeFilter} searchQuery={searchQuery} />
-      <Footer />
+      <div className="bg-gradient-to-b from-[#550902ff] via-[#550902ff] to-[#090201ff] text-white">
+        <Footer />
+      </div>
+      
     </main>
   );
 }

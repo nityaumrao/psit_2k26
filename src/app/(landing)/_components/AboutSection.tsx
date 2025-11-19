@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function AboutSection() {
 
   return (
-    <section className="flex min-h-screen w-full flex-col items-center text-white px-6 py-2 text-center" >
+    <section className="flex min-h-screen w-full flex-col items-center text-black px-6 py-2 text-center" >
       <FadeUp>
         <p className="text-[10px] text-black/100 font-semibold uppercase tracking-[0.55em]">
           IGNITIA® / 28·04·2026
