@@ -7,7 +7,7 @@ import { FloatingNavDemo } from './_components/floatingNav';
 
 export default function Home() {
   return (
-    <section className="relative min-h-screen overflow-hidden ">
+    <section className="relative min-h-screen overflow-hidden  " >
 
       <FloatingNavDemo />
 

@@ -7,14 +7,14 @@ import Image from "next/image";
 export default function AboutSection() {
 
   return (
-    <section className="flex min-h-screen w-full flex-col items-center bg-[#fdfbf6] px-6 py-2 text-center">
+    <section className="flex min-h-screen w-full flex-col items-center text-white px-6 py-2 text-center" >
       <FadeUp>
-        <p className="text-[10px]  font-semibold uppercase tracking-[0.55em] text-neutral-600">
+        <p className="text-[10px] text-[#E2DFD0] font-semibold uppercase tracking-[0.55em]">
           IGNITIA® / 28·04·2026
         </p>
       </FadeUp>
       <FadeUp delay={0.5}>
-        <h2 className="mt-4 font-anton text-4xl leading-tight text-black md:text-6xl lg:text-[5.2rem]">
+        <h2 className="mt-4 font-anton text-4xl leading-tight text-white md:text-6xl lg:text-[5.2rem]">
           ABOUT IGNITIA
         </h2>
       </FadeUp>
@@ -48,19 +48,19 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          className="w-full max-w-xl pt-20 text-sm font-semibold leading-relaxed text-black lg:w-1/2"
+          className="w-full max-w-xl pt-20 text-sm font-semibold leading-relaxed text-yellow lg:w-1/2"
         >
-          <p className="tracking-wide">
+          <p className="tracking-wide text-yellow">
             Ignitia 2025, PSIT&apos;s highly anticipated annual techno-cultural fest, stands as a true reflection of our
             commitment to fostering holistic student development.
           </p>
 
-          <p className="mt-4 tracking-wide">
+          <p className="mt-4 tracking-wide text-yellow">
             This two-day extravaganza features an exciting mix of events, performances, and competitions, offering
             students unique opportunities to showcase their talents, leadership skills, and creativity.
           </p>
 
-          <p className="mt-4 tracking-wide">
+          <p className="mt-4 tracking-wide text-yellow">
             Managed by <span className="text-red-500">SAHYOG JANKALYAN SAMITI</span>.
           </p>
         </motion.div>
@@ -79,17 +79,17 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="w-full max-w-xl pt-20 text-sm font-semibold leading-relaxed text-black lg:w-1/2"
+            className="w-full max-w-xl pt-20 text-sm font-semibold leading-relaxed text-yellow lg:w-1/2"
           >
-            <p className="tracking-wide">
+            <p className="tracking-wide text-yellow">
               Ignitia 2025, PSIT&apos;s highly anticipated annual techno-cultural fest, stands as a true reflection of our
               commitment to fostering holistic student development.
             </p>
-            <p className="mt-4 tracking-wide">
+            <p className="mt-4 tracking-wide text-yellow">
               This two-day extravaganza features an exciting mix of events, performances, and competitions, offering
               students unique opportunities to showcase their talents, leadership skills, and creativity.
             </p>
-            <p className="mt-4 tracking-wide">
+            <p className="mt-4 tracking-wide text-yellow">
               Managed by <span className="text-red-500">SAHYOG JANKALYAN SAMITI</span>.
             </p>
           </motion.div>

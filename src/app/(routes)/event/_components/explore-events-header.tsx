@@ -30,7 +30,7 @@ const ExploreEventsHeader = ({
       className="relative isolate flex min-h-[60vh] flex-col items-center justify-center overflow-hidden px-6 py-24 text-center text-white md:px-12"
       style={{
         background:
-          "radial-gradient(circle at 15% 20%, rgba(248,214,156,0.22), transparent 45%), radial-gradient(circle at 85% 10%, rgba(179,131,56,0.25), transparent 50%), linear-gradient(180deg, #070013 0%, #0d021d 60%, #050109 100%)",
+          "radial-gradient(circle at 15% 20%, rgba(251, 190, 86, 0.22), transparent 45%), radial-gradient(circle at 85% 10%, rgba(179,131,56,0.25), transparent 50%), linear-gradient(180deg, #550902ff 0%, #1d0302ff 60%, #090201ff 100%)",
       }}
     >
       {/* floating glow accents */}
@@ -38,12 +38,12 @@ const ExploreEventsHeader = ({
       <div className="pointer-events-none absolute right-6 top-[-20px] h-32 w-32 rounded-full bg-[#b38338]/30 blur-[100px]" />
 
       {/* floating emblem icons */}
-      <div className="absolute left-6 top-6 text-[#f5d79f]/80">
+      {/* <div className="absolute left-6 top-6 text-[#f5d79f]/80">
         <LeafCluster />
       </div>
       <div className="absolute right-10 top-8 text-[#f2c875]/70 rotate-12">
         <LeafCluster />
-      </div>
+      </div> */}
 
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-6">
         <div

@@ -107,7 +107,8 @@ export function EventsShowcase({ activeFilter, searchQuery }: EventsShowcaseProp
 
 function EventCard({ title, description, date, club, category, imageUrl }: EventCardProps) {
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-[#f4c77a]/15 bg-gradient-to-b from-[#170312]/50 to-[#050109]/80 shadow-[0_25px_60px_rgba(0,0,0,0.45)]">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-[#f4c77a]/15 bg-gradient-to-b from-[#000000] via-[#0b0b0b] to-[#550902ff]
+ shadow-[0_25px_60px_rgba(0,0,0,0.45)]">
       <div className="overflow-hidden">
         <Image
           src={imageUrl}
