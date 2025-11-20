@@ -2,8 +2,9 @@ import React from 'react'
 
 function About() {
   return (
-    <section className="relative overflow-hidden bg-[url('/images/psit-campus.jpg')] text-white">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.12),_transparent_60%)]" />
+    <section className="relative overflow-hidden bg-[url('bg.jpg')] text-white">
+      <div className='bg-[#0a000d]/60'>
+        <div className="pointer-events-none absolute  inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.12),_transparent_60%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(255,178,93,0.2),_transparent_60%)]" />
         <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-6 py-16 md:flex-row md:items-center md:justify-between">
           <div className="space-y-8 md:max-w-xl">
@@ -63,7 +64,8 @@ function About() {
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
   )
 }
 

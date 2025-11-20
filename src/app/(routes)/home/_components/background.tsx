@@ -23,10 +23,10 @@ export function WavyBackgroundDemo() {
         <p className="text-base md:text-lg mt-4 text-white font-normal inter-var text-center">
           Powered by Passion. Fueled by Fire
         </p>
-        <div style={{backgroundImage:"url('/bg.jpg')"}}>
-
+        <div className="absolute" style={{backgroundImage:"url('/bg.jpg')"}}>
+            <Character />
         </div>
-        <Character />
+        
       </div>
     </>
   );
