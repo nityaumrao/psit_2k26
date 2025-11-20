@@ -192,3 +192,19 @@
 .animate-pulse-slow {
   animation: pulseSlow 6s ease-in-out infinite;
 }
+
+@keyframes floatWave {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.02);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+.animate-float-slow {
+  animation: floatWave 7s ease-in-out infinite;
+}
